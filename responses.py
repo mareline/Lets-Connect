@@ -1,5 +1,6 @@
 import random
 
+isTrivia = False
 
 def scav_hunt():
     scavNum = random.randint(1, 3)
@@ -25,9 +26,14 @@ def ice_breaker():
 def triv_q():
     trivNum = random.randint(1,1)
     if trivNum == 1:
-        trivQ = 'What is the middle of the egg called? \n1.akkle  2.mook 3.yolk  4.yellow'
+        trivQ = 'What is the middle of the egg called?'
+        a[0] = 'akkle'
+        a[1] = 'mook'
+        a[2] = 'yolk'
+        a[3] = 'yellow'
         correctNum = 3
-    return triv_q
+    
+    return trivQ,a,correctNum
 
 
 def get_response(message: str) -> str:
@@ -48,14 +54,14 @@ def get_response(message: str) -> str:
         return iceQ
 
     if p_message == '!!triva':
-        trivQ = triv_q()
+        trivQ,ans,correctNum = triv_q()
         isTrivia == True
-        return 
+        return trivQ + ans[0] + ans[1] + ans[2] + ans[3]
 
     if isTrivia == True:
         if p_message == correctNum:
-            isTrivia == False
+            isTrivia = False
             return 'Correct!!'
         if p_message != correctNum:
-            isTrivia == False
+            isTrivia = False
             return 'Incorrect!'
