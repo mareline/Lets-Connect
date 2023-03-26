@@ -27,10 +27,13 @@ def triv_q():
     trivNum = random.randint(1,1)
     if trivNum == 1:
         trivQ = 'What is the middle of the egg called?'
-        a = ['akkle','mook','yolk','yellow']
-        correctNum = 3
-    
-    return trivQ,a,correctNum
+        a = 'akkle'
+        b = 'yellow'
+        c = 'yolk'
+        correct = 3
+        
+    return trivQ,a,b,c,correct
+
 
 
 def get_response(message: str) -> str:
@@ -51,14 +54,14 @@ def get_response(message: str) -> str:
         return iceQ
 
     if p_message == '!!triva':
-        trivQ,ans,correctNum = triv_q()
+        trivQ,a,b,c,correct = triv_q()
         isTrivia == True
-        return trivQ + ans[0] + ans[1] + ans[2] + ans[3]
+        return trivQ + a+b+c
 
     if isTrivia == True:
-        if p_message == correctNum:
+        if p_message == correct:
             isTrivia = False
             return 'Correct!!'
-        if p_message != correctNum:
+        if p_message != correct:
             isTrivia = False
             return 'Incorrect!'
