@@ -27,10 +27,7 @@ def triv_q():
     trivNum = random.randint(1,1)
     if trivNum == 1:
         trivQ = 'What is the middle of the egg called?'
-        a[0] = 'akkle'
-        a[1] = 'mook'
-        a[2] = 'yolk'
-        a[3] = 'yellow'
+        a = ['akkle','mook','yolk','yellow']
         correctNum = 3
     
     return trivQ,a,correctNum
