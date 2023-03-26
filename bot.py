@@ -1,7 +1,8 @@
 import discord
 import responses
 
-TOKEN = 'MTA4OTIzODU4NTQ1NjIwNTg4NA.G9pDpg.ueBcQ_avH5KZV8657a2hJq9fRAfLzdCjTzgPrU'
+with open('token.txt') as f:
+    TOKEN = f.readline()
 
 
 async def send_message(message, user_message, is_private):
@@ -13,7 +14,6 @@ async def send_message(message, user_message, is_private):
 
 
 def run_discord_bot():
-    TOKEN = 'MTA4OTIzODU4NTQ1NjIwNTg4NA.G9pDpg.ueBcQ_avH5KZV8657a2hJq9fRAfLzdCjTzgPrU'
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
