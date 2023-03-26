@@ -22,6 +22,13 @@ def ice_breaker():
         iceQ = "What's the worst movie you've ever watched?"
     return iceQ
 
+def triv_q():
+    trivNum = random.randint(1,1)
+    if trivNum == 1:
+        trivQ = 'What is the middle of the egg called? \n1.akkle  2.mook 3.yolk  4.yellow'
+        correctNum = 3
+    return triv_q
+
 
 def get_response(message: str) -> str:
     p_message = message.lower()
@@ -29,7 +36,8 @@ def get_response(message: str) -> str:
     if p_message == '!!games':
         scavHunt = '!!scav-hunt for a quick Scavenger Hunt :3'
         iceQ = '!!ice-q for some spicy ice breakers >:}'
-        return scavHunt + '\n' + iceQ
+        trivia = '!!trivia for some real headscratchers ;-;'
+        return scavHunt + '\n' + iceQ + '\n' + trivia
 
     if p_message == '!!scav-hunt':
         scavItem = scav_hunt()
@@ -40,5 +48,14 @@ def get_response(message: str) -> str:
         return iceQ
 
     if p_message == '!!triva':
+        trivQ = triv_q()
+        isTrivia == True
+        return 
 
-        return
+    if isTrivia == True:
+        if p_message == correctNum:
+            isTrivia == False
+            return 'Correct!!'
+        if p_message != correctNum:
+            isTrivia == False
+            return 'Incorrect!'
